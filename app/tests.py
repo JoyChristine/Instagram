@@ -13,5 +13,3 @@ class ImageTestClass(TestCase):
         self.photo.save_photo()
         photos = Image.objects.all()
         self.assertTrue(len(photos)>0)
-
-        
