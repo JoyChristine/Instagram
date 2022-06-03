@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 from decouple import config
-from django import conf 
+import cloudinary,cloudinary.api,cloudinary.uploader
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -128,6 +128,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 
 ]
+cloudinary.config( 
+  cloud_name = config('CD_NAME'), 
+  api_key = config('CD_API'),
+  api_secret = config('CD_SECRET'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
