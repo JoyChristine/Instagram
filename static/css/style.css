@@ -1,0 +1,66 @@
+#back{
+    background-image: url(../img/back4.png);
+    background-repeat: no-repeat;
+    height:100vh;
+
+}
+#login,#reg{
+    background-color: fafafa;
+    
+}
+#title-img{
+    align-items: center;
+}
+#panel-reg,#panel-login{
+    background-color:#fff;
+    border:1px solid black;
+    margin-top:5%;
+
+}
+
+#form-login,#form-reg{
+    display: block;
+    
+    
+    padding: 3vw 3vw 3vw 4vw;
+    
+}
+#form-reg{
+    background-color:#ffffff;
+}
+#form-reg .helptext{
+    display:none;
+}
+#form-login .helptext{
+    display:none;
+}
+#login-btn,#signup{
+    color:#fff;
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    background-color: #0995f6;
+    line-height: normal;
+    padding:1vw 1vw;
+    border-radius:0.7vw;
+    border: none;
+    font-weight: 400;
+    
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+}
+#id_username,#id_password,#id_email,#id_password1,#id_password2{
+    background-color: fafafa;
+    display:table;
+    padding: 1% 1%;
+
+    width:100%;
+    border:1px solid grey;
+    outline:none;
+    border-radius:0.3vw;
+    /* margin:1.3vw; */
+    color: #8c8c8c;
+        
+}
+#para{
+    font-size: 1vw;
+}
