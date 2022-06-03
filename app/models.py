@@ -21,7 +21,7 @@ class Image(models.Model):
     def save_photo(self):
         self.save()
     # delete
-    def delete(self):
+    def delete_photo(self):
         self.delete()
 
     # update caption
