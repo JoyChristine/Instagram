@@ -132,7 +132,7 @@ body{
     margin-top: 50px;
 }
 
-.wrapper{
+.stories{
     width: 70%;
     max-width: 1000px;
     display: grid;
@@ -140,12 +140,12 @@ body{
     grid-gap: 30px;
 }
 
-.left-col{
+.left{
     display: flex;
     flex-direction: column;
 }
 
-.status-wrapper{
+.story{
     width: 100%;
     height: 120px;
     background: #fff;
@@ -159,23 +159,23 @@ body{
     overflow-x: auto;
 }
 
-.status-wrapper::-webkit-scrollbar{
+/* .story::-webkit-scrollbar{
     display: none;
-}
+} */
 
-.status-card{
+.card{
     flex: 0 0 auto;
     width: 80px;
     max-width: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 15px;
+    margin-right: 0.1vw;
 }
 
 .profile-pic{
-    width: 70px;
-    height: 70px;
+    width: 4.8vw;
+    height: 4.8vw;
     border-radius: 50%;
     overflow: hidden;
     padding: 3px;
