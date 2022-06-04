@@ -13,9 +13,13 @@
 }
 #panel-reg,#panel-login{
     background-color:#fff;
-    border:1px solid black;
+    /* border:1px solid black; */
     margin-top:5%;
+    border: 1px solid #dbdbdb;
 
+}
+#col-reg{
+    width:30vw;
 }
 
 #form-login,#form-reg{
@@ -63,4 +67,5 @@
 }
 #para{
     font-size: 1vw;
+    color:#8E8E8E;
 }
