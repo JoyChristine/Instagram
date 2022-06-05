@@ -16,15 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth.views import LoginView, LogoutView
-from app import views as main
+from . import views as main
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('',main.index,name='index'),
-    path('home/',LoginView.as_view(template_name='home.html'),name='home'),
+    # path('index/',main.index,name='index'),
+    # path('', include('app.urls')),
+    path('app/', include('app.urls')),
+    path('home/',main.home,name='home'),
     path('login/',LoginView.as_view(template_name='registration/login.html'),name='login'),
-    path('logout/',LogoutView.as_view(template_name='all/index.html'),name='logout')
-
+    path('logout/',LogoutView.as_view(template_name='home.html'),name='logout')
+    
    
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
