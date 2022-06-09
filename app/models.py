@@ -54,7 +54,7 @@ class Post(models.Model):
     
 
    
-
+# add class comment
 class Comment(models.Model):
     comment = models.TextField(null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments',null=True)
