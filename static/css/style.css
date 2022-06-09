@@ -93,13 +93,7 @@
     }
 
 }
-#cont{
-    /* background-color:rgb(51, 50, 50); */
-    width:100%;
-    overflow: hidden;
-    padding-top:7%;
-   
-}
+
 
 .form-text, .asteriskField{
     display:none;
@@ -143,11 +137,14 @@
 body{
     background-color:#f9f9f9;
 }
-
+#container-prof,#user{
+    margin-top:3%;
+}
 .account-img {
     height: 10vw;
     width: 10vw;
 }
+
 .user-img {
     height: 2.5vw;
     width: 2.5vw;
@@ -178,7 +175,7 @@ body{
     /* background-color:rgb(51, 50, 50); */
     width:100%;
     overflow: hidden;
-    padding-top:7%;
+    /* padding-top:7%; */
    
 }
 
@@ -235,6 +232,7 @@ body{
 }
 #mycards{
     text-align:right ;
+    border-radius:1em;
     margin-bottom:5%;
     border:1px solid rgb(0, 0, 0);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -281,4 +279,26 @@ body{
 /* #post-card-footer p a:hover{
     color:rgb(211, 77, 67);
 } */
+/* user.html */
+.account-heading .username-text{
+    font-size:2vw;
+  
+}
+.account-heading .btn-edit{
+    display:inline-block;
+    padding:0.6vw 1vw;
+    border:1px solid #000000;
+    margin:0 1vw 1vw  0;
+    
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#000000;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    background-color:#FFFFFF;
+    text-align:center;
+    transition: all 0.15s
+
+}
 
