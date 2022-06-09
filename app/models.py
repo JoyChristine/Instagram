@@ -36,7 +36,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True, null=True)
 
     # def __str__(self):
-    #         return f'{self.user.username} Post'
+    #         return f'{self.user.name} Post'
 
     def __str__(self):
         return self.name
@@ -80,12 +80,14 @@ class Comment(models.Model):
 # class follow
 
 class Follow(models.Model):
-    follower = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='following')
-    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='followers')
+    follower = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='following',null=True)
+    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='followers',null=True)
 
     def __str__(self):
         return f'{self.follower} Follow'
+           
 
+            
     def save_follow(self):
         self.save()
 
