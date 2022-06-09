@@ -13,7 +13,7 @@ class SignUpForm(UserCreationForm):
 
 
 
-
+# update user profile pic & bio
 class UpdateUserProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
