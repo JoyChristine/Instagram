@@ -70,9 +70,18 @@
            
             <img src="{{image.user.profile_picture.url}}" class="rounded-circle border mt-2"
                              alt="{{image.user.user.username}}" width="5" height="5"> -->
-          <a href="{% url 'profile' user.username %}" id="user-btn" class="icon">
-            <svg class="icon user-profile">{{user.username}}</svg>
-        </a>
+
+            <a href="{% url 'profile' user.username %}" id="user-btn" class="icon">
+            {% if user.profile.profile_picture %}
+            <img  class="icon user-profile" src="{{ user.profile.profile_picture.url }}">
+        
+            {% else %}
+                <img class="icon user-profile" src="{% static 'img/default.png' %}">
+            {% endif %}
+                      
+          
+            
+            </a>
            
        </div>
        
