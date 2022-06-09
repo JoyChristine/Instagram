@@ -9,7 +9,7 @@ from .models import Post, Comment, Profile, Follow
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 
-
+# sign up function 
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -46,31 +46,17 @@ def index(request):
 def profile(request, username):
     images = request.user.profile.posts.all()
     if request.method == 'POST':
-        # updateUserForm = UpdateUserForm(request.POST, instance=request.user)
         updateUserProfileForm = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if updateUserProfileForm.is_valid():
-            
             updateUserProfileForm.save()
         return HttpResponseRedirect(request.path_info)
     else:
-        # updateUserForm = UpdateUserForm(instance=request.user)
+       
         updateUserProfileForm = UpdateUserProfileForm(instance=request.user.profile)
     return render(request, 'app/user.html', {'UpdateUserProfileForm': UpdateUserProfileForm, 'images': images, 'updateUserProfileForm': updateUserProfileForm})
 
 
-# @login_required(login_url='login')
-# def userprofile(request, username):
-#     
-#     userprofile = get_object_or_404(User, username=username)
-#     # get users profile & posts
-#     if request.user == userprofile:
-#         return redirect('profile', username=request.user.username)
-#     userposts = userprofile.profile.posts.all()
-#     # get no of followers
-#     followers = Follow.objects.filter(followed=userprofile.profile)
-    
 
-#     return render(request, 'app/user.html', {'user_prof': userprofile, 'user_posts': userposts, 'followers': followers})
 @login_required
 def user_profile(request, username):
     # Calls get() on profile model, but it raises Http404 instead of the model’s DoesNotExist exception.
