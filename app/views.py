@@ -83,20 +83,6 @@ def user_profile(request, username):
     return render(request, 'app/profile.html', context)
 
 
-# comment
-# @login_required
-# def comment(request, id):
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comment = form.save(commit=False)
-#             comment.user = request.user.profile
-#             comment.post = Post.objects.get(pk=id)
-#             comment.save()
-#             return HttpResponseRedirect(request.path_info)
-#     else:
-#         form = CommentForm()
-#     return render(request, 'app/comment.html', {'form': form})
 
 @login_required(login_url='login')
 def comment(request, id):
