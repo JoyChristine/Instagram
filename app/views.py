@@ -144,11 +144,17 @@ def like(request,id):
     else:
         image.likes.add(user.user)
         is_liked = True
-    
-    # context = {'image': image, 'liked': liked,'total_likes':total_likes}
+
 
     return HttpResponseRedirect(reverse('index'))
 
+
+def follow(request, id):
+    if request.method == 'GET':
+        followed = Profile.objects.get(pk=id)
+        follow_s = Follow(follower=request.user.profile, followed= followed)
+        follow_s.save()
+        return redirect('user_profile', user_profile3.user.username)
 
 def unfollow(request, id):
     if request.method == 'GET':
@@ -156,11 +162,3 @@ def unfollow(request, id):
         unfollow_d = Follow.objects.filter(follower=request.user.profile, followed=user_profile2)
         unfollow_d.delete()
         return redirect('user_profile', user_profile2.user.username)
-
-
-def follow(request, id):
-    if request.method == 'GET':
-        user_profile3 = Profile.objects.get(pk=id)
-        follow_s = Follow(follower=request.user.profile, followed=user_profile3)
-        follow_s.save()
-        return redirect('user_profile', user_profile3.user.username)
