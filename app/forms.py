@@ -19,7 +19,7 @@ class UpdateUserProfileForm(forms.ModelForm):
         model = Profile
         fields =  ('profile_picture', 'bio')
 
-
+# form to post an image
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
