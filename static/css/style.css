@@ -311,3 +311,7 @@ body{
     height:7vw;
 }
 
+.controls .textinput{
+    width:70%;
+    padding:1vw;
+}
