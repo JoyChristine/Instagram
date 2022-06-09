@@ -154,7 +154,7 @@ def follow(request, id):
         followed = Profile.objects.get(pk=id)
         follow_s = Follow(follower=request.user.profile, followed= followed)
         follow_s.save()
-        return redirect('user_profile', user_profile3.user.username)
+        return redirect('user_profile',  followed.user.username)
 
 def unfollow(request, id):
     if request.method == 'GET':
