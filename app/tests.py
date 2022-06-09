@@ -30,6 +30,8 @@ class TestProfile(TestCase):
         after = Profile.search_profile('Joy')
         self.assertTrue(len(after) > 0)
 
+   
+
 
     
 class TestPost(TestCase):
