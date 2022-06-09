@@ -18,6 +18,9 @@
         font-size: 3vw; /* change this to change the size*/
         
 }
+#nav-logo:hover{
+    text-decoration: none;
+}
 *{
     margin: 0;
     padding: 0;
@@ -135,10 +138,11 @@ body{
 }
 
 .user-profile{
-    width: 22px;
+    padding-bottom:6%;
+    width: 2vw;
+    height: 2vw;
     border-radius: 50%;
-    background-image: url(../img/back3.png);
-    background-size: cover;
+   
 }
 /* section 
 */
