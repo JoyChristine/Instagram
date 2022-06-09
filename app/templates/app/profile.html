@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {%load static%}
-<div class="container" style="margin-top:8%">
+<div class="container" id="container-prof">
     <div class="content-section">
         <div class="media">
             <div class="container">
@@ -11,26 +11,19 @@
                     <div class="col-md-3">
                       
                         <img  class="rounded-circle account-img" src="{{ user_prof.profile.profile_picture.url }}" width="240px">
-                   
-
-
-
-
-
-
-
-                        
+    
                     </div>
                     <div class="col-md-6 mt-3">
                         <div class="media-body">
                             <div class="account-heading">
-                                <span class="mr-3 text-secondary username">{{ user_prof.username }}</span>
+                                <span class="username-text">{{ user_prof.username }}</span>
+                                <br>
                                 {% if follow_status %}
-                                <a class="btn btn-sm btn-outline-danger ml-5" href="{% url 'unfollow' user_prof.profile.id %}">Unfollow</a>
+                                <a class="btn btn-sm btn-outline-danger" href="{% url 'unfollow' user_prof.profile.id %}">Unfollow</a>
 
                                 {%else%}
 
-                                <a class="btn btn-sm btn-primary ml-5" href="{% url 'follow' user_prof.profile.id %}">Follow</a>
+                                <a class="btn btn-sm btn-primary" href="{% url 'follow' user_prof.profile.id %}">Follow</a>
                                 {% endif %}
                 
                                 
@@ -57,9 +50,9 @@
                 <div class="im">
                 <img src="{{image.image.url}}" alt="{{image.caption}}" class="card-img">
                 <p id="overlay"class="text"> 
-                    <i class="fa fa-heart" style="color:white; font-size: 18"></i> 
+                    <i class="fa fa-heart" id="fa-heart" ></i> 
                     <span style="color: white">{{image.likes.count}}</span>
-                     <i class="fa fa-comment ml-4" style="color: white"></i> <span style="color: white">{{image.comments.count}}</span></p>
+                     <i class="fa fa-comment ml-4" style="color: white" id="fa-com"></i> <span style="color: white">{{image.comments.count}}</span></p>
             
                     </div>
                     </div>
