@@ -1,0 +1,259 @@
+.instagram{
+    margin-top:5%;
+    background: #f09433; 
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    }
+
+#back{
+    background-image: url(../img/back4.png);
+    background-repeat: no-repeat;
+    height:100vh;
+
+}
+#login,#reg{
+    background-color: #fafafa;
+    
+}
+#title-img{
+    align-items: center;
+}
+#panel-reg,#panel-login{
+    background-color:#fff;
+    /* border:1px solid black; */
+    margin-top:5%;
+    border: 1px solid #dbdbdb;
+
+}
+#col-reg{
+    width:30vw;
+}
+
+#form-login,#form-reg{
+    display: block;
+    
+    
+    padding: 3vw 3vw 3vw 4vw;
+    
+}
+#form-reg{
+    background-color:#e02828;
+}
+#form-reg .helptext{
+    display:none;
+}
+#form-login .helptext{
+    display:none;
+}
+#login-btn,#signup{
+    color:#fff;
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    background-color: #0995f6;
+    line-height: normal;
+    padding:1vw 1vw;
+    border-radius:0.7vw;
+    border: none;
+    font-weight: 400;
+    
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+}
+#id_username,#id_password,#id_email,#id_password1,#id_password2{
+    background-color: #fafafa;
+    display:table;
+    padding: 1% 1%;
+
+    width:100%;
+    border:1px solid grey;
+    outline:none;
+    border-radius:0.3vw;
+    /* margin:1.3vw; */
+    color: #8c8c8c;
+        
+}
+.controls li {
+    display: none;
+}
+#para{
+    font-size: 1vw;
+    color:#8E8E8E;
+}
+@media only screen and (max-width: 475px){
+    .download{
+        width:45%;
+        display:flex;
+        flex-direction:row;
+        display:inline;
+    }
+    #insta{
+        height:60%;
+    }
+
+}
+#cont{
+    /* background-color:rgb(51, 50, 50); */
+    width:100%;
+    overflow: hidden;
+    padding-top:7%;
+   
+}
+
+.form-text, .asteriskField{
+    display:none;
+}
+.reg{
+    background-color:#f9f9f9;
+}
+.alert{
+    margin:0;
+    padding:0;
+}
+.alert ul li {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+    font-size:1vw;
+}
+.navbar{
+    background-color:white;
+}
+
+.modal-body a{
+    text-decoration:none;
+    color:black;
+    text-align:center;
+}
+.hearticon{
+    color:black;
+    font-size:2.5vw;
+    margin-left:-1vw;
+    margin-right:-1vw;
+}
+.viewall a{
+    text-decoration:none;
+    color:grey;
+}
+
+.main{
+    margin-top:5%;
+}
+body{
+    background-color:#f9f9f9;
+}
+
+.account-img {
+    height: 10vw;
+    width: 10vw;
+}
+.user-img {
+    height: 2.5vw;
+    width: 2.5vw;
+    margin-top:5%;
+}
+.inname{
+    font-size:1.5vw;
+}
+.user-details{
+    margin-left:2vw;
+}
+.userinfo{
+    margin-top:2vw;
+}
+.username{
+    font-size:2vw;
+}
+#cog{
+    font-size:2vw;
+}
+.card-body{
+    margin:0;
+    padding:0;
+}
+/* iconic */
+
+#cont{
+    /* background-color:rgb(51, 50, 50); */
+    width:100%;
+    overflow: hidden;
+    padding-top:7%;
+   
+}
+
+.user a:hover{
+    text-decoration:none;
+}
+.col-form-label{
+    font-size:14;
+}
+#overlay{
+    display: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(37, 36, 36, 0.456);
+    position:absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 30%;
+}
+.card:hover #overlay{
+    display: block;
+
+}
+#hint_id_username,#hint_id_email,#hint_id_password1,#hint_id_password2{
+    display: none;
+}
+/* index */
+#myposts,#user_imgs{
+    display:flex;
+    /* justify-content:space-around; */
+    flex-wrap: wrap;
+   
+    
+}
+#mycards,#user-cards{
+    width:30%;
+    margin-right:2%;
+    
+}
+
+/* userprofile */
+#user_imgs{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    
+}
+
+.card-img{
+    width:100%;
+
+}
+#mycards{
+    text-align:right ;
+    margin-bottom:5%;
+    border:1px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+#overlay{
+    color: white;
+}
+#details{
+    display:flex;
+    margin-top:3%;
+}
+
+#add{
+    color: white;
+    border:none;
+    width:10%;
+    margin-bottom:3%;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+}

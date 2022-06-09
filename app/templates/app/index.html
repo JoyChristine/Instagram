@@ -1,0 +1,101 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="" id="cont">
+    <div class="row">
+       
+        <div class="col-md-12">
+            <div class="row">
+               
+                <!-- <div class="instagram"></div> -->
+                <button class="btn" id="add" data-toggle="modal"
+                 data-target="#addpost" >
+                    Add post
+                </button>
+               
+                <div class="modal fade" id="addpost" tabindex="-1" role="dialog"
+                     aria-labelledby="modal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal-title">Upload Image</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="post" enctype="multipart/form-data" novalidate>
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <br><br>
+                                    <button class="btn btn-sm btn-success">Upload</button>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="myposts" id="myposts">
+                {% for image in images %}
+                <div class="card" id="mycards">
+                    <div class="card-title" id="card-title">
+                        <img src="{{image.user.profile_picture.url}}" class="rounded-circle border mt-2"
+                             alt="{{image.user.user.username}}" width="35" height="35">
+                        <a href="{% url 'user_profile' image.user.user.username  %}" class="mt-4 user" style="color:black">{{image.user.user.username|title}}</a>
+                    </div>
+                    <div class="card-body">
+                        <!-- add comment -->
+                        <a href="#"><div class="card-text">
+                             
+                            <img src="{{image.image.url}}"  class="card-img" width="100%" height="100%" alt=""/>
+                        </div></a>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'comment' image.id%}" class="">
+                            <i class="fa fa-comment"></i>
+                        </a>
+                        &nbsp;
+                        <a href="{% url 'like' image.id%}" class="">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                        <p> Created {{image.created|timesince}} ago</p>
+                    </div>
+                    <p> {{image.likes.count}} like{{image.likes.count|pluralize}}</p>
+                    <p><a href="{% url 'comment' image.id%}">View {{image.comments.count}} comment{{image.comments.count|pluralize}}</a></p>
+                   
+                    {%for com in image.comments.all%}
+                    <div class="comments" id="com">
+                        <b>{{comment.user.user.username}}</b>
+                        <b>{{comment.comment}}</b>
+
+                    </div>
+                    {%if user == user%}
+                    <button class="btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h post-buttons"></i>
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Update</a>
+                            <a class="dropdown-item" href="#">Delete</a>
+                        </div>
+                    {%endif%}
+                    {% endfor %}
+                   
+                   
+                 
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+            
+        
+    </div>
+   
+</div>
+
+{% endblock %}
