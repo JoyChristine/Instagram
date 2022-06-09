@@ -54,7 +54,7 @@ def profile(request, username):
     else:
        
         updateUserProfileForm = UpdateUserProfileForm(instance=request.user.profile)
-    return render(request, 'app/user.html', { 'images': images, 'updateUserProfileForm': updateUserProfileForm})
+    return render(request, 'app/user.html', {'UpdateUserProfileForm': UpdateUserProfileForm, 'images': images, 'updateUserProfileForm': updateUserProfileForm})
 
 
 
@@ -87,7 +87,6 @@ def user_profile(request, username):
 
 @login_required(login_url='login')
 def comment(request, id):
-    user_prof = get_object_or_404(User, username=id)
     image = get_object_or_404(Post, pk=id)
     is_liked = False
     if image.likes.filter(id=request.user.id).exists():
@@ -102,18 +101,7 @@ def comment(request, id):
             return HttpResponseRedirect(request.path_info)
     else:
         form = CommentForm()
-
-    # followers = Follow.objects.filter(followed=user_prof.profile)
-    # follow_status = None
-    # for follower in followers:
-    #     if request.user.profile == follower.follower:
-    #         follow_status = True
-    #     else:
-    #         follow_status = False
-
     context = {
-        # 'followers': followers,
-        # 'follow_status': follow_status,
         'image': image,
         'form': form,
         'is_liked': is_liked,
@@ -127,7 +115,7 @@ def search_profile(request):
     if 'search_user' in request.GET and request.GET['search_user']:
         name = request.GET.get("search_user")
         results = Profile.search_profile(name)
-        # print(results)
+        print(results)
         message = f'name'
         context = {'results': results,'message': message }
         return render(request, 'app/results.html', context)
