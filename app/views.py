@@ -42,8 +42,9 @@ def index(request):
     return render(request, 'app/index.html', {'images': images, 'form': form, 'users': users})
 
 
-@login_required(login_url='login')
+@login_required
 def profile(request, username):
+    Profile.objects.get_or_create(user=request.user)
     images = request.user.profile.posts.all()
     if request.method == 'POST':
         updateUserProfileForm = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -53,11 +54,11 @@ def profile(request, username):
     else:
        
         updateUserProfileForm = UpdateUserProfileForm(instance=request.user.profile)
-    return render(request, 'app/user.html', {'UpdateUserProfileForm': UpdateUserProfileForm, 'images': images, 'updateUserProfileForm': updateUserProfileForm})
+    return render(request, 'app/user.html', { 'images': images, 'updateUserProfileForm': updateUserProfileForm})
 
 
 
-@login_required
+@login_required(login_url='login')
 def user_profile(request, username):
     # Calls get() on profile model, but it raises Http404 instead of the model’s DoesNotExist exception.
     user_prof = get_object_or_404(User, username=username)
