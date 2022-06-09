@@ -1,6 +1,7 @@
 {% extends 'app/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+{%load static%}
 <div class="user" style="margin-top:8%">
     <div class="content-section">
         <div class="media">
@@ -8,7 +9,13 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <img class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}">
+                       
+                        <img  class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}" width="240px">
+                       
+
+
+
+                        
                     </div>
                     <div class="col-md-2 mt-3" >
                         <div class="media-body">
