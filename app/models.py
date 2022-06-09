@@ -26,7 +26,7 @@ class Profile(models.Model):
     def search_profile(cls, name):
         return cls.objects.filter(user__username__icontains=name).all()
 
-
+# class post
 class Post(models.Model):
     image = models.ImageField(upload_to='posts/',null=True)
     name = models.CharField(max_length=250, blank=True)
