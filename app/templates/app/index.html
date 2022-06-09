@@ -50,14 +50,17 @@
                         <a href="{% url 'user_profile' image.user.user.username  %}" class="mt-4 user" style="color:black">{{image.user.user.username|title}}</a>
                     </div>
                     <div class="card-body">
+                        
                         <!-- add comment -->
                         <a href="#">
                             <div class="card-text">
                              
                             <img src="{{image.image.url}}"  class="card-img" width="100%" height="100%" alt=""/>
-                        </div></a>
+                        </div>
+                    </a>
                     </div>
                     <div class="card-footer"  id="post-card-footer">
+                        <p>  {{image.caption}}</p>
                         <a href="{% url 'comment' image.id%}" class="">
                             <i class="fa fa-comment " id="fa-com"></i>
                            
