@@ -23,11 +23,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
-    # path('accounts/', include('registration.backends.simple.urls')),
+    path('accounts/', include('registration.backends.simple.urls')),
     # # path('index/',main.index,name='index'),
-    # # path('', include('app.urls')),
-    # path('app/', include('app.urls')),
-    # path('home/',main.home,name='home'),
+   
     path('login/',LoginView.as_view(template_name='registration/login.html'),name='login'),
     path('logout/',LogoutView.as_view(template_name='login.html'),name='logout')
     
