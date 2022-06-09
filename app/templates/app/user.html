@@ -1,5 +1,5 @@
 {% extends 'app/base.html' %}
-{% load crispy_forms_tags %}
+
 {% block content %}
 {%load static%}
 <div class="user" id="user">
@@ -52,7 +52,7 @@
                     <form action="" method="post" novalidate enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
                         {% csrf_token%}
                         
-                        {{ updateUserProfileForm|crispy}}
+                        {{ updateUserProfileForm}}
                         <button type="submit" class="btn btn-primary btn-sm"> Update Profile</button>
                     </form>
                 </div>

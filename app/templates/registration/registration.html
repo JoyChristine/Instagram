@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+
 {% block content %}
 {% load static %}
 
@@ -16,7 +16,7 @@
                     </p>
                     <form action="" method="post" novalidate>
                         {% csrf_token%}
-                        {{ form|crispy}}
+                        {{ form}}
                         <br>
                         <button type="submit" id="signup" class="btn btn-primary btn-sm"> Sign up</button>
                     </form>
