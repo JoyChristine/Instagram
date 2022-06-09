@@ -56,18 +56,21 @@
                             <img src="{{image.image.url}}"  class="card-img" width="100%" height="100%" alt=""/>
                         </div></a>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer"  id="post-card-footer">
                         <a href="{% url 'comment' image.id%}" class="">
-                            <i class="fa fa-comment"></i>
+                            <i class="fa fa-comment " id="fa-com"></i>
+                           
                         </a>
                         &nbsp;
                         <a href="{% url 'like' image.id%}" class="">
-                            <i class="fa fa-heart"></i>
+                            <i class="fa fa-heart" id="fa-heart"></i>
                         </a>
-                        <p> Created {{image.created|timesince}} ago</p>
+                        <p> {{image.likes.count}} like{{image.likes.count|pluralize}}</p>
+                        <p > Created {{image.created|timesince}} ago</p>
+                        
+                        <p><a href="{% url 'comment' image.id%}">View {{image.comments.count}} comment{{image.comments.count|pluralize}}</a></p>
+                       
                     </div>
-                    <p> {{image.likes.count}} like{{image.likes.count|pluralize}}</p>
-                    <p><a href="{% url 'comment' image.id%}">View {{image.comments.count}} comment{{image.comments.count|pluralize}}</a></p>
                    
                     {%for com in image.comments.all%}
                     <div class="comments" id="com">
@@ -75,15 +78,7 @@
                         <b>{{comment.comment}}</b>
 
                     </div>
-                    {%if user == user%}
-                    <button class="btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-ellipsis-h post-buttons"></i>
-                    </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Update</a>
-                            <a class="dropdown-item" href="#">Delete</a>
-                        </div>
-                    {%endif%}
+                  
                     {% endfor %}
                    
                    
