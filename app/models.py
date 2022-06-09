@@ -77,7 +77,7 @@ class Comment(models.Model):
 
     
 
-
+# class follow
 
 class Follow(models.Model):
     follower = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='following')
