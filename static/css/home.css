@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('http://fonts.cdnfonts.com/css/billabong');
+
+                
 
 .instagram{
     margin-top:5%;
@@ -38,68 +41,17 @@ body{
     font-family: 'roboto', sans-serif;
 }
 
-.navbar{
-    /* position: fixed; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4.5vw;
-    background: #fff;
-    border-bottom: 1px solid #dfdfdf;
-    display: flex;
-    justify-content: center;
-    padding: 5px 0;
-}
-
-.nav-wrapper{
-    width: 70%;
-    max-width: 1000px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* .brand-img{
-    height: 5vw;
-} */
-/* 
-.search{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 25px;
-    background: #efefef;
+#navbarSupportedContent a{
    
-    border-radius: 2px;
-    color: rgba(196, 30, 30, 0.5);
-    text-align: center;
-    text-transform: capitalize;
-} */
-.navbar input[type=text] {
-    padding: 1vw;
-    margin-top: 1%;
-    font-size: 1.3vw;
-    background: #efefef;
-    border:none;
-    /* border-top-left-radius: 12%;
-    border-bottom-left-radius: 12%; */
-  }
- .navbar .search-container button {
-    float: right;
-    padding: 1vw 1.5vw;
-    margin-top: 1%;
-    /* border-top-right-radius: 30%;
-    border-bottom-right-radius: 30%; */
-    /* margin-top: 8px;
-    margin-right: 16px; */
-    
-    font-size: 1.3vw;
-    border: none;
-    cursor: pointer;
-  }
-  
+    position: relative;
+    color: #000000;
+    font-size: 30px;
+    font-family: "billabong", sans-serif;
+    text-decoration: none;
+}
+
+
+
   .navbar .search-container button:hover {
     background: rgb(134, 0, 0);
   }
@@ -112,30 +64,21 @@ body{
     color: rgba(0, 0, 0, 0.5);
 }
 
-.nav-items{
-    /* height: 22px;
-    width:70%; */
-    position: relative;
-    display: flex;
-    
-}
+
 .nav-items a
 {
 
     
     cursor: pointer;
-    /* margin: 0 0.8vw; */
+   
     display: inline-block;
+}
+#right a i {
+    font-size:22px;
+    color:black;
 }
 
-.icon{
-    width:1.7vw;
-    height:1.7vw;
-    color:rgb(0, 0, 0);
-    cursor: pointer;
-    margin: 0 0.5vw;
-    display: inline-block;
-}
+
 
 .user-profile{
     padding-bottom:6%;
