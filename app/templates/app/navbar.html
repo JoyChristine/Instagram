@@ -1,119 +1,105 @@
 {%load static%}
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
-<nav class="navbar">
-    <div class="nav-wrapper">
-        <a href="/" id="nav-logo">
-             <img src="{%static 'img/title.png'%}" class="brand-img" alt="" style="height:4vw">
 
-            <i class="fa fa-instagram" id="insta" aria-hidden="true"></i>
-        </a>
-       
+  <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-fixed-top navbar">
+    <div class="container-fluid">
 
-        <!-- modal not working on navbar -->
-        <!-- <button class="btn" id="add" data-toggle="modal"
-        data-target="#imageUpload" >
-           Add post
-       </button>
-      
-       <div class="modal fade" id="imageUpload" tabindex="0" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="z-index:0" >
-           <div class="modal-dialog modal-dialog-centered" role="document">
-               <div class="modal-content">
-                   <div class="modal-header">
-                       <h5 class="modal-title" id="exampleModalLongTitle">Image Upload</h5>
-                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                           <span aria-hidden="true">&times;</span>
-                       </button>
-                   </div>
-                   <div class="modal-body">
-                       <form action="" method="post" enctype="multipart/form-data" novalidate>
-                           {% csrf_token %}
-                           {{ form}}
-                           <br><br>
-                           <button class="btn btn-sm btn-success">Upload</button>
-                           <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">
-                               Close
-                           </button>
-                       </form>
-                   </div>
-               </div>
-           </div>
-       </div> -->
-        <form class="mb-0 h1 ml-auto mr-auto" id="searchform" action="{% url 'search' %}" >
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+
+            <a href="/" id="nav-logo" class="text me-3">
+              Instagram
+   
+               <i class="fa fa-instagram" id="insta" aria-hidden="true"></i>
+           </a>
+           <form class="d-flex input-group w-auto" id="searching">
+            <input
+              type="search"
+              class="form-control rounded"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="search-addon"
+            />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="fa fa-search"></i>
+            </span>
+          </form>
+           <!-- {%csrf_token%}
+           <form class="mb-0 h1 ml-auto mr-auto" id="searchform" action="{% url 'search' %}" >
             <input name="search_user" autocomplete="off" id="searching" class="form-control d-none d-md-block" placeholder="Search">
            <i class="spinner "></i>
-       </form>
-        <!-- <form class="search-container">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form> -->
-       
-        <div class="nav-items">
-            
-            <a class="icon" href="/" role="link" tabindex="0">
-                <svg aria-label="Home" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
-            </a>
-
-            <a aria-label="Direct messaging - 0 new notifications link" class="icon" href="#" role="link" tabindex="0">
-                <svg aria-label="Messenger" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M12.003 1.131a10.487 10.487 0 00-10.87 10.57 10.194 10.194 0 003.412 7.771l.054 1.78a1.67 1.67 0 002.342 1.476l1.935-.872a11.767 11.767 0 003.127.416 10.488 10.488 0 0010.87-10.57 10.487 10.487 0 00-10.87-10.57zm5.786 9.001l-2.566 3.983a1.577 1.577 0 01-2.278.42l-2.452-1.84a.63.63 0 00-.759.002l-2.556 2.049a.659.659 0 01-.96-.874L8.783 9.89a1.576 1.576 0 012.277-.42l2.453 1.84a.63.63 0 00.758-.003l2.556-2.05a.659.659 0 01.961.874z"></path></svg></a>
-              
-                <!-- <a href="{% url 'logout' %}" class="icon">
-                    <svg aria-label="New post" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="6.545" x2="17.455" y1="12.001" y2="12.001"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line></svg>
-                </a> -->
-            
-            
-
-            <!-- <a class="icon" href="#" role="link" tabindex="0">
-                <svg aria-label="Find People" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><polygon fill="none" points="13.941 13.953 7.581 16.424 10.06 10.056 16.42 7.585 13.941 13.953" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon><polygon fill-rule="evenodd" points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"></polygon><circle cx="12.001" cy="12.005" fill="none" r="10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle></svg>
-            </a>  -->
-<!-- {{userprofile.user.profile.profile_picture.url}}
-
-            <a class="icon" href="#">
-                <svg aria-label="Activity Feed" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M16.792 3.904A4.989 4.989 0 0121.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 014.708-5.218 4.21 4.21 0 013.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 013.679-1.938m0-2a6.04 6.04 0 00-4.797 2.127 6.052 6.052 0 00-4.787-2.127A6.985 6.985 0 00.5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 003.518 3.018 2 2 0 002.174 0 45.263 45.263 0 003.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 00-6.708-7.218z"></path></svg><div class="_acul"></div></a>
-           
-            <img src="{{image.user.profile_picture.url}}" class="rounded-circle border mt-2"
-                             alt="{{image.user.user.username}}" width="5" height="5"> -->
-
-            <a href="{% url 'profile' user.username %}" id="user-btn" class="icon">
-            {% if user.profile.profile_picture %}
-            <img  class="icon user-profile" src="{{ user.profile.profile_picture.url }}">
-        
-            {% else %}
-                <img class="icon user-profile" src="{% static 'img/default.png' %}">
-            {% endif %}
-                      
-          
-            
-            </a>
-            
-         
-           
-       </div>
-       
-
-    
+            </form> -->
         </div>
-    </div>
-</nav>
-<!-- <div class="navbar fixed-top bg-white" > 
-    <nav class="container">
-      <span class="navbar-brand mb-0 h1">
-          <a href="/">
-            <img src="{%static 'img/title.png'%}" class="myimg" alt="" style="height:4vw">
-              <div class="instaicon mainicon d-block d-sm-none"></div>
-          </a>
-      </span>
-        <form class="mb-0 h1 ml-auto mr-auto" id="searchform" action="{% url 'search' %}" >
-             <input name="search_user" autocomplete="off" id="searching" class="form-control d-none d-md-block" placeholder="Search">
-            <i class="spinner "></i>
-        </form>
+        <div class="d-flex align-items-center" id="right">
+            <a class="icon me-3" href="#">
+                <i class="fa fa-compass"></i>
+            </a>
+            <a href="icon me-3">
+                 <i class="fa fa-heart"></i>
+                
+            </a>
+             
+              
         
-        <span class="pull-right">
-            <div class="instaicon disc"></div>
-            <div class="instaicon like"></div>
-            <a href="{% url 'profile' user.username %}" class="instaicon pers"></a>
-        </span>
-    </nav>
-</div> -->
+             
+             
+              <!-- Avatar -->
+              <div class="dropdown">
 
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  data-toggle="dropdown"
+                  id="navbarDropdownMenuAvatar"
+                  role="button"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false" style="color: rgb(0, 0, 0);"
+                >
+                {% if user.profile.profile_picture %}
+                <img    class="rounded-circle"   height="25" width="25" src="{{ user.profile.profile_picture.url }}">
+            
+                {% else %}
+                    <img   class="rounded-circle"   height="25" width="25"src="{% static 'img/default.png' %}">
+                {% endif %}
+                </a>
+
+            
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdownMenuAvatar"
+                >
+                  <li>
+                    <a class="dropdown-item" href="{% url 'profile' user.username %}">My profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Settings</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+              <a class="icon me-3">
+                <i class="fa fa-sign-out"></i>
+              </a>
+           
+            </div>
+           
+
+        </div>
+        
+
+    </div>
+    </nav>
+
+        
+       
+
+       
+     
+       
