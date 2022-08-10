@@ -6,43 +6,67 @@
     <div class="content-section">
         <div class="media">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-3">
-                        {% if user.profile.profile_picture %}
-                        <img  class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}" width="240px">
-                       
-                        {% else %}
-                            <img class="rounded-circle account-img" src="{% static 'img/default.png' %}" width="240px">
-                        {% endif %}
+                <header>
 
-
-
-                        
-                    </div>
-                    <div class="col-md-6 " >
-                        <div class="media-body">
-                            <div class="account-heading">
-                                <span class="username-text">{{ user.username }}</span>
-                                <br>
-                                <br>
-                                <a class="btn-edit" data-toggle="modal" data-target=".bd-example-modal-md"><strong>Edit Profile</strong></a>
-                                
-                                <a href="{% url 'logout' %}" class="ml-3" id="log"> Logout
-                                    <i class="fa fa-sign-out" id="logout-icon" aria-hidden="true"></i>
-                                </a>
+                    <div class="container">
+                
+                        <div class="profile">
+                
+                            <div class="profile-image">
+                
+                                {% if user.profile.profile_picture %}
+                                <img  class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}" width="240px">
+                               
+                                {% else %}
+                                    <img class="rounded-circle account-img" src="{% static 'img/default.png' %}" width="240px">
+                                {% endif %}
+                
                             </div>
+                
+                            <div class="profile-user-settings">
+                
+                                <h1 class="profile-user-name">{{ user.username }}_</h1>
+                                <button id="edit-btn">
+                                    <a class="btn profile-edit-btn" id="profile-edit-btn" data-toggle="modal" data-target=".bd-example-modal-md">
+                                        
+                                        Edit Profile
+                                            
+                            
+                                        </a>
+                                </button>
+                            
+                
+                                <button class="btn profile-settings-btn" aria-label="profile settings">
+                                    <i class="fa fa-cog" aria-hidden="true" width=35 height=25>
 
-                            <div class="details" id=>
-                                <span class="mr-5"><strong>{{images.count}}</strong> Posts</span>
-                                <span class="mr-5"> <strong>{{ user.profile.followers.count }}</strong> followers</span>
-                                <span class="mr-5"> <strong>{{ user.profile.following.count }}</strong> following</span>
+                                </i></button>
+                
                             </div>
-                            <h5>{{ user.profile.name }}</h5>
-                            <p class="text-secondary">{{ user.profile.bio }}</p>
+                
+                            <div class="profile-stats">
+                
+                                <ul>
+                                    <li><span class="profile-stat-count">{{images.count}}</span> posts</li>
+                                    <li><span class="profile-stat-count">{{ user.profile.followers.count }}</span> followers</li>
+                                    <li><span class="profile-stat-count">{{ user.profile.following.count }}</span> following</li>
+                                </ul>
+                
+                            </div>
+                
+                            <div class="profile-bio">
+                
+                                <p><span class="profile-real-name" id="profile-real-name">{{user.username}}</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
+                
+                            </div>
+                
                         </div>
+                      
+                
                     </div>
-                </div>
+                  
+                </header>
+
+               
             </div>
         </div>
        
