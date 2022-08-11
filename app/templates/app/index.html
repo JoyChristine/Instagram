@@ -40,9 +40,10 @@
                 </div>
             </div>
            
-            <div class="row">
+            <div class="row align-items-start"> 
+                {% for image in images %}
                 <div class="col-md-4">
-                    {% for image in images %}
+                   
                     <article class="post" >
                         <div class="post__header">
                             <div class="post__profile">
@@ -99,8 +100,9 @@
                        
                        
                     </article>
-                    {%endfor%}
+                    
                 </div>
+                {%endfor%}
             </div>
             
               
