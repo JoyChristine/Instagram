@@ -6,7 +6,7 @@
    
         <div class="row" id="comment-row">
             <div class="col-md-6" >
-                <div class="card" style="width:20vw;">
+                <div class="card" id="card" style="width:20vw;">
                     <div class="card-title" id="card-title">
                         {% if user.profile.profile_picture %}
                         <img    class="rounded-circle"   height="25" width="25" src="{{ user.profile.profile_picture.url }}">
@@ -14,7 +14,7 @@
                         {% else %}
                             <img   class="rounded-circle"   height="25" width="25"src="{% static 'img/default.png' %}">
                         {% endif %}
-                   <a href="{% url 'user_profile' image.user.user.username  %}" class="mt-4 user" style="color:black">{{image.user.user.username|title}}</a>
+                        <a href="{% url 'user_profile' image.user.user.username  %}" class="mt-4 user" style="color:black">{{image.user.user.username|title}}</a>
                     </div>
                     <div class="card-body">
                         <img src="{{image.image.url}}" alt="{{image.caption}}" class="card-img">
