@@ -193,19 +193,7 @@ body{
 #hint_id_username,#hint_id_email,#hint_id_password1,#hint_id_password2{
     display: none;
 }
-/* index */
-#myposts,#user_imgs{
-    display:flex;
-    /* justify-content:space-around; */
-    flex-wrap: wrap;
-   
-    
-}
-#mycards,#user-cards{
-    width:30%;
-    margin-right:2%;
-    
-}
+
 
 /* userprofile */
 #user_imgs{
@@ -246,9 +234,10 @@ body{
 }
 
 /* icons */
-#fa-com,#fa-heart{
+/* #fa-com,#fa-heart{
     font-size:1.3vw;
-    color:black;
+    color:none;
+    border:1px solid red;
     
 }
 #fa-com:hover{
@@ -256,24 +245,8 @@ body{
 }
 #fa-heart:hover{
     color:red;
-}
-#post-card-footer{
-    text-align:center
-}
-#post-card-footer p{
-    font-size: 1vw;
-    color:black;
-    margin-bottom: 0;
-}
-#post-card-footer a:hover{
-    text-decoration:none;
-}
-#post-card-footer p a{
-    color:black;
-}
-/* #post-card-footer p a:hover{
-    color:rgb(211, 77, 67);
 } */
+
 /* user.html */
 .account-heading .username-text{
     font-size:2vw;
@@ -319,3 +292,4 @@ body{
     border:1px solid #8e8e8e;
     padding:1vw 1vw 1vw 1vw;
 } */
+/* newpost */
