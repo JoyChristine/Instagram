@@ -8,7 +8,7 @@
         <div class="col-md-12">
             <div class="row">
                
-                <!-- <div class="instagram"></div> -->
+    
                 <button class="btn" id="add" data-toggle="modal"
                  data-target="#addpost" >
                     Add post
@@ -39,65 +39,72 @@
                     </div>
                 </div>
             </div>
-
            
-            <div class="myposts" id="myposts">
-                {% for image in images %}
-                <div class="card" id="mycards">
-                    <div class="card-title" id="card-title">
-                        {% if user.profile.profile_picture %}
-                        <img    class="rounded-circle"   height="25" width="25" src="{{ user.profile.profile_picture.url }}">
-                    
-                        {% else %}
-                            <img   class="rounded-circle"   height="25" width="25"src="{% static 'img/default.png' %}">
-                        {% endif %}
-                        </a>
-                        <!-- <img src="" class="rounded-circle border mt-2"
-                             alt="{{image.user.user.username}}" width="35" height="35"> -->
-                        <a href="{% url 'user_profile' image.user.user.username  %}" class="mt-4 user" style="color:black">{{image.user.user.username|title}}</a>
-                    </div>
-                    <div class="card-body">
-                        
-                        <!-- add comment -->
-                        <a href="#">
-                            <div class="card-text">
-                             
-                            <img src="{{image.image.url}}"  class="card-img" width="100%" height="100%" alt=""/>
+            <div class="row">
+                <div class="col-md-4">
+                    {% for image in images %}
+                    <article class="post" >
+                        <div class="post__header">
+                            <div class="post__profile">
+                                <a href="https://github.com/leocosta1" target="_blank" class="post__avatar">
+                                    {% if user.profile.profile_picture %}
+                                    <img    class="rounded-circle"   height="25" width="25" src="{{ user.profile.profile_picture.url }}">
+                                
+                                    {% else %}
+                                        <img   class="rounded-circle"   height="25" width="25" src="{% static 'img/default.png' %}">
+                                    {% endif %}
+                                </a>
+                                <a href="{% url 'user_profile' image.user.user.username  %}" class="user" style="color:black">{{image.user.user.username|title}}</a>
+                            </div>
                         </div>
-                    </a>
-                    </div>
-                    <div class="card-footer"  id="post-card-footer">
-                        <p>  {{image.caption}}</p>
-                        <a href="{% url 'comment' image.id%}" class="">
-                            <i class="fa fa-comment " id="fa-com"></i>
+                        <div class="card-body">
+                            <a href="#">
+        
+                                <img src="{{image.image.url}}"  class="card-img" width="100%" height="100%" alt=""/>
                            
-                        </a>
-                        &nbsp;
-                        <a href="{% url 'like' image.id%}" class="">
-                            <i class="fa fa-heart" id="fa-heart"></i>
-                        </a>
-                        <p> {{image.likes.count}} like{{image.likes.count|pluralize}}</p>
-                        <p > Created {{image.created|timesince}} ago</p>
+                        </div>
+                        <div class=""  id="post-card-footer">
+                            <a href="{% url 'like' image.id%}" class="heart" >
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" id="heart"preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="m8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385c.92 1.815 2.834 3.989 6.286 6.357c3.452-2.368 5.365-4.542 6.286-6.357c.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                            </a>
+                            <a href="{% url 'comment' image.id%}" class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="currentColor" d="M496 496h-16a273.39 273.39 0 0 1-179.025-66.782l-16.827-14.584A291.407 291.407 0 0 1 256 416c-63.527 0-123.385-20.431-168.548-57.529C41.375 320.623 16 270.025 16 216S41.375 111.377 87.452 73.529C132.615 36.431 192.473 16 256 16s123.385 20.431 168.548 57.529C470.625 111.377 496 161.975 496 216a171.161 171.161 0 0 1-21.077 82.151a201.505 201.505 0 0 1-47.065 57.537a285.22 285.22 0 0 0 63.455 97l4.687 4.685ZM294.456 381.222l27.477 23.814a241.379 241.379 0 0 0 135 57.86a317.5 317.5 0 0 1-62.617-105.583l-4.395-12.463l9.209-7.068C440.963 305.678 464 262.429 464 216c0-92.636-93.309-168-208-168S48 123.364 48 216s93.309 168 208 168a259.114 259.114 0 0 0 31.4-1.913Z"/></svg>
+                               
+                            </a>
+                            <a href="{% url 'comment' image.id%}" class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"><path d="M43 5L29.7 43l-7.6-17.1L5 18.3L43 5Z"/><path stroke-linecap="round" d="M43 5L22.1 25.9"/></g></svg>
+                               
+                            </a>
+                         
+                           
                         
-                        <p><a href="{% url 'comment' image.id%}">View {{image.comments.count}} comment{{image.comments.count|pluralize}}</a></p>
+                            
+                            <p> {{image.likes.count}} like{{image.likes.count|pluralize}}</p>
+                            <p id="post_caption"><a href=""> <b>{{image.user.user.username}}</b></a> {{image.caption}}</p>
+                            <p id="date" style="  text-transform: uppercase;">{{image.created|timesince}} ago</p>
+                            
+                            <p id="post-comment"><a href="{% url 'comment' image.id%}">View {{image.comments.count}} comment{{image.comments.count|pluralize}}</a></p>
+                           
+                        </div>
                        
-                    </div>
-                   
-                    {%for com in image.comments.all%}
-                    <div class="comments" id="com">
-                        <b>{{comment.user.user.username}}</b>
-                        <b>{{comment.comment}}</b>
-
-                    </div>
-                  
-                    {% endfor %}
-                   
-                   
-                 
+                        {%for com in image.comments.all%}
+                        <div class="comments" id="com">
+                            <b>{{comment.user.user.username}}</b>
+                            <b>{{comment.comment}}</b>
+        
+                        </div>
+                      
+                        {% endfor %}
+                       
+                       
+                       
+                    </article>
+                    {%endfor%}
                 </div>
-                {% endfor %}
             </div>
-            </div>
+            
+              
+    
             
         
     </div>
