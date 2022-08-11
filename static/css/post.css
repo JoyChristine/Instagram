@@ -4,10 +4,11 @@
     flex-direction: column;
     flex-wrap: wrap;
     overflow: hidden;
+    height: 100%;
    
   }
 #post{
-    border: 1px solid red;
+ border: 1px solid var(--border);
 }
   .post__header {
    
